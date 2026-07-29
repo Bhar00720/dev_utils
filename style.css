@@ -1,0 +1,316 @@
+:root {
+    --bg-color: #121212;
+    --sidebar-bg: #1e1e1e;
+    --pane-bg: #252526;
+    --border-color: #333333;
+    --text-primary: #cccccc;
+    --text-secondary: #808080;
+    --accent-color: #007acc;
+    --accent-hover: #0098ff;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --code-font: 'Fira Code', monospace;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 0 20px 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i {
+    color: var(--accent-color);
+}
+
+.nav-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tab-btn:hover {
+    background-color: rgba(255,255,255,0.05);
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    background-color: rgba(0, 122, 204, 0.1);
+    color: #ffffff;
+    border-left-color: var(--accent-color);
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    overflow-y: auto;
+}
+
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px; /* Ensure space for layout */
+}
+
+.tool-section {
+    display: none;
+    height: 100%;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease;
+}
+
+.tool-section.active {
+    display: flex;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.status-indicator {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: #333;
+    color: #fff;
+}
+
+.status-indicator.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: var(--success-color);
+}
+
+.status-indicator.error {
+    background-color: rgba(244, 67, 54, 0.2);
+    color: var(--error-color);
+}
+
+.split-pane {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+}
+
+.pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--pane-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.pane-header {
+    background-color: #1e1e1e;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pane-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+textarea {
+    flex: 1;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 15px;
+    font-family: var(--code-font);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: none;
+    outline: none;
+}
+
+textarea[readonly] {
+    background-color: rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+.btn-primary:hover { background-color: var(--accent-hover); }
+
+.btn-secondary {
+    background-color: #333333;
+    color: white;
+}
+.btn-secondary:hover { background-color: #444444; }
+
+.btn-danger {
+    background-color: transparent;
+    color: var(--error-color);
+    border: 1px solid var(--border-color);
+}
+.btn-danger:hover {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-color: var(--error-color);
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+.btn-icon:hover { color: #ffffff; }
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: bottom 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.toast.show {
+    bottom: 30px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+    .split-pane {
+        flex-direction: column;
+    }
+    .pane-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+@media (max-width: 600px) {
+    .app-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 10px 20px;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .logo {
+        padding: 0;
+        margin-right: 20px;
+    }
+    .nav-tabs {
+        flex-direction: row;
+        gap: 10px;
+    }
+    .tab-btn {
+        padding: 10px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+    }
+    .tab-btn.active {
+        border-left: none;
+        border-bottom-color: var(--accent-color);
+    }
+
+    .main-content {
+        overflow-y: visible;
+    }
+}

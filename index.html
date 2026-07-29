@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Developer Utilities | JSON Formatter & Base64 Converter</title>
+    <meta name="description" content="Free online developer tools to format, validate, and minify JSON payloads, plus encode and decode Base64 strings instantly. Works entirely offline.">
+    <link rel="canonical" href="https://dev-tools.corelumetech.in/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dev-tools.corelumetech.in/">
+    <meta property="og:title" content="Free Developer Utilities | JSON Formatter & Base64 Converter">
+    <meta property="og:description" content="Free online developer tools to format, validate, and minify JSON payloads, plus encode and decode Base64 strings instantly. Works entirely offline.">
+    <meta property="og:image" content="https://dev-tools.corelumetech.in/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://dev-tools.corelumetech.in/">
+    <meta property="twitter:title" content="Free Developer Utilities | JSON Formatter & Base64 Converter">
+    <meta property="twitter:description" content="Free online developer tools to format, validate, and minify JSON payloads, plus encode and decode Base64 strings instantly. Works entirely offline.">
+    <meta property="twitter:image" content="https://dev-tools.corelumetech.in/og-image.jpg">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Dev Utils",
+      "url": "https://dev-tools.corelumetech.in/",
+      "description": "Free online developer utilities for formatting JSON and encoding/decoding Base64.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      }
+    }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://quge5.com/88/tag.min.js" data-zone="265070" async data-cfasync="false"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h1 class="logo">
+                <i class="fa-solid fa-code"></i> DevUtils
+            </h1>
+            
+            <nav class="nav-tabs">
+                <button class="tab-btn active" data-target="json-tool"><i class="fa-solid fa-brackets-curly"></i> { } JSON Tools</button>
+                <button class="tab-btn" data-target="base64-tool"><i class="fa-solid fa-file-code"></i> Base64</button>
+            </nav>
+            
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+
+            <div class="content-wrapper">
+                <!-- JSON Tool Section -->
+                <section id="json-tool" class="tool-section active">
+                    <header class="section-header">
+                        <h2>JSON Formatter & Validator</h2>
+                        <div class="status-indicator" id="json-status">Ready</div>
+                    </header>
+                    
+                    <div class="split-pane">
+                        <div class="pane">
+                            <div class="pane-header">Input JSON</div>
+                            <textarea id="json-input" placeholder="Paste your JSON here..."></textarea>
+                        </div>
+                        <div class="pane-actions">
+                            <button class="btn btn-primary" id="btn-format">Format</button>
+                            <button class="btn btn-secondary" id="btn-minify">Minify</button>
+                            <button class="btn btn-danger" id="btn-clear-json"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="pane">
+                            <div class="pane-header">
+                                Output
+                                <button class="btn-icon" id="btn-copy-json" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                            <textarea id="json-output" readonly placeholder="Result will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Base64 Tool Section -->
+                <section id="base64-tool" class="tool-section">
+                    <header class="section-header">
+                        <h2>Base64 Encoder & Decoder</h2>
+                        <div class="status-indicator" id="base64-status">Ready</div>
+                    </header>
+                    
+                    <div class="split-pane">
+                        <div class="pane">
+                            <div class="pane-header">Input Text / Base64</div>
+                            <textarea id="base64-input" placeholder="Type or paste text/base64 here..."></textarea>
+                        </div>
+                        <div class="pane-actions">
+                            <button class="btn btn-primary" id="btn-encode">Encode to Base64</button>
+                            <button class="btn btn-secondary" id="btn-decode">Decode from Base64</button>
+                            <button class="btn btn-danger" id="btn-clear-b64"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="pane">
+                            <div class="pane-header">
+                                Output
+                                <button class="btn-icon" id="btn-copy-b64" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                            <textarea id="base64-output" readonly placeholder="Result will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+
+        </main>
+    </div>
+    
+    <!-- Toast -->
+    <div id="toast" class="toast">Action successful!</div>
+    <script src="script.js"></script>
+</body>
+</html>
