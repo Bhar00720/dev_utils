@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://quge5.com/88/tag.min.js" data-zone="266632" async data-cfasync="false"></script>
     <link rel="icon" href="favicon.jpg" type="image/jpeg">
 </head>
@@ -54,6 +55,10 @@
             <nav class="nav-tabs">
                 <button class="tab-btn active" data-target="json-tool"><i class="fa-solid fa-brackets-curly"></i> { } JSON Tools</button>
                 <button class="tab-btn" data-target="base64-tool"><i class="fa-solid fa-file-code"></i> Base64</button>
+                <button class="tab-btn" data-target="url-tool"><i class="fa-solid fa-link"></i> URL Encode</button>
+                <button class="tab-btn" data-target="uuid-tool"><i class="fa-solid fa-fingerprint"></i> UUID Gen</button>
+                <button class="tab-btn" data-target="hash-tool"><i class="fa-solid fa-hashtag"></i> Hash Gen</button>
+                <button class="tab-btn" data-target="json-ts-tool"><i class="fa-brands fa-js"></i> JSON to TS</button>
             </nav>
             
 
@@ -114,6 +119,109 @@
                                 <button class="btn-icon" id="btn-copy-b64" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
                             </div>
                             <textarea id="base64-output" readonly placeholder="Result will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- URL Tool Section -->
+                <section id="url-tool" class="tool-section">
+                    <header class="section-header">
+                        <h2>URL Encoder & Decoder</h2>
+                        <div class="status-indicator" id="url-status">Ready</div>
+                    </header>
+                    
+                    <div class="split-pane">
+                        <div class="pane">
+                            <div class="pane-header">Input Text / URL</div>
+                            <textarea id="url-input" placeholder="Type or paste text/url here..."></textarea>
+                        </div>
+                        <div class="pane-actions">
+                            <button class="btn btn-primary" id="btn-url-encode">Encode URL</button>
+                            <button class="btn btn-secondary" id="btn-url-decode">Decode URL</button>
+                            <button class="btn btn-danger" id="btn-clear-url"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="pane">
+                            <div class="pane-header">
+                                Output
+                                <button class="btn-icon" id="btn-copy-url" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                            <textarea id="url-output" readonly placeholder="Result will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- UUID Tool Section -->
+                <section id="uuid-tool" class="tool-section">
+                    <header class="section-header">
+                        <h2>UUID v4 Generator</h2>
+                        <div class="status-indicator" id="uuid-status">Ready</div>
+                    </header>
+                    
+                    <div class="card" style="margin-top: 0; margin-bottom: 15px; display: flex; gap: 15px; align-items: center;">
+                        <label for="uuid-count">Number of UUIDs:</label>
+                        <input type="number" id="uuid-count" min="1" max="100" value="1" style="background: transparent; border: 1px solid var(--border-color); color: white; padding: 5px 10px; border-radius: 6px; font-family: var(--code-font); width: 80px;">
+                        <button class="btn btn-primary" id="btn-gen-uuid">Generate</button>
+                        <button class="btn btn-danger" id="btn-clear-uuid"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+
+                    <div class="pane" style="flex: 1;">
+                        <div class="pane-header">
+                            Output
+                            <button class="btn-icon" id="btn-copy-uuid" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
+                        </div>
+                        <textarea id="uuid-output" readonly placeholder="Result will appear here..."></textarea>
+                    </div>
+                </section>
+
+                <!-- Hash Tool Section -->
+                <section id="hash-tool" class="tool-section">
+                    <header class="section-header">
+                        <h2>Hash Generator</h2>
+                        <div class="status-indicator" id="hash-status">Ready</div>
+                    </header>
+                    
+                    <div class="split-pane">
+                        <div class="pane">
+                            <div class="pane-header">Input Text</div>
+                            <textarea id="hash-input" placeholder="Type or paste text here..."></textarea>
+                        </div>
+                        <div class="pane-actions">
+                            <button class="btn btn-primary" id="btn-hash-md5">MD5</button>
+                            <button class="btn btn-secondary" id="btn-hash-sha256">SHA-256</button>
+                            <button class="btn btn-danger" id="btn-clear-hash"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="pane">
+                            <div class="pane-header">
+                                Output
+                                <button class="btn-icon" id="btn-copy-hash" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                            <textarea id="hash-output" readonly placeholder="Result will appear here..."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- JSON to TS Tool Section -->
+                <section id="json-ts-tool" class="tool-section">
+                    <header class="section-header">
+                        <h2>JSON to TypeScript Converter</h2>
+                        <div class="status-indicator" id="json-ts-status">Ready</div>
+                    </header>
+                    
+                    <div class="split-pane">
+                        <div class="pane">
+                            <div class="pane-header">Input JSON</div>
+                            <textarea id="json-ts-input" placeholder="Paste your JSON here..."></textarea>
+                        </div>
+                        <div class="pane-actions">
+                            <button class="btn btn-primary" id="btn-convert-ts">Convert to TS</button>
+                            <button class="btn btn-danger" id="btn-clear-json-ts"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                        <div class="pane">
+                            <div class="pane-header">
+                                TypeScript Interface
+                                <button class="btn-icon" id="btn-copy-json-ts" title="Copy Output"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                            <textarea id="json-ts-output" readonly placeholder="Result will appear here..."></textarea>
                         </div>
                     </div>
                 </section>
