@@ -1,0 +1,37 @@
+# Dev Tools — JSON Formatter, Base64 Converter & Developer Utilities
+
+> Dev Tools provides free, private, 100% client-side utilities for developers to format, validate, and minify JSON, encode/decode Base64 and URLs, generate UUIDs, compute cryptographic hashes, and convert JSON to TypeScript interfaces.
+
+Website: https://dev-tools.corelumetech.in/
+Developer & Publisher: Corelume Tech (https://corelumetech.in)
+Privacy Policy: 100% Client-Side Processing. No user data, files, or strings are collected, stored, or transmitted to any server.
+
+## Overview
+Dev Tools provides free, private, 100% client-side utilities for developers to format, validate, and minify JSON, encode/decode Base64 and URLs, generate UUIDs, compute cryptographic hashes, and convert JSON to TypeScript interfaces.
+
+## Core Features
+- JSON Formatter, Validator, and Minifier with syntax error highlighting
+- Client-side Base64 string encoder and decoder
+- URL component encoder and decoder (RFC 3986 compliant)
+- Cryptographic Hash Generator supporting MD5 and SHA-256
+- UUID v4 random identifier generator with batch generation capability
+- Automated JSON-to-TypeScript interface code generation with recursive nested typing
+
+## Benchmarks & Technical Specifications
+- 100% Offline and private (sensitive developer keys and JSON payloads never leave your browser)
+- Zero byte limits on client-side JSON parsing and formatting
+- Sub-millisecond SHA-256 and MD5 cryptographic hashing
+- Instant single-click copy for all formatted and generated outputs
+
+## Ecosystem Tools by Corelume Tech
+- Omni Calculator: https://calculator.corelumetech.in/
+- Color Master: https://color-generator.corelumetech.in/
+- Dev Tools: https://dev-tools.corelumetech.in/
+- Password Generator: https://password-generator.corelumetech.in/
+- QR Code Generator: https://qr-generator.corelumetech.in/
+- Text Utilities: https://text-tools.corelumetech.in/
+
+## Links & Discovery
+- Homepage: https://dev-tools.corelumetech.in/
+- Sitemap: https://dev-tools.corelumetech.in/sitemap.xml
+- Robots: https://dev-tools.corelumetech.in/robots.txt

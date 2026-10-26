@@ -1,3 +1,38 @@
+# Robots.txt for Dev Tools — JSON Formatter, Base64 Converter & Developer Utilities
+# Corelume Tech Tools - https://corelumetech.in
+
 User-agent: *
 Allow: /
+
+# Explicit AI Crawlers & Search Assistants
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 Sitemap: https://dev-tools.corelumetech.in/sitemap.xml
